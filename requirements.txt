@@ -2,3 +2,4 @@ django
 gunicorn
 python-decouple
 dj-database-url
+django-browser-reload
