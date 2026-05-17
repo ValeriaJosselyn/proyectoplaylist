@@ -30,9 +30,17 @@ DEBUG = config("DEBUG", default=True)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='').split(',')
 
 if 'CODESPACE_NAME' in os.environ:
-    codespace_name = config("CODESPACE_NAME")
-    codespace_domain = config("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")
-    CSRF_TRUSTED_ORIGINS = [f'https://{codespace_name}-8000.{codespace_domain}']
+   codespace_name = config("CODESPACE_NAME")
+   codespace_domain = config("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")
+   CSRF_TRUSTED_ORIGINS = [f'https://{codespace_name}-8000.{codespace_domain}']
+else:
+   CSRF_TRUSTED_ORIGINS = [
+       'https://localhost:8000',
+       'http://localhost:8000',
+       'https://127.0.0.1:8000',
+       'http://127.0.0.1:8000',
+   ]
+
 
 # Application definition
 
@@ -44,6 +52,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_browser_reload",
+    "blog",
 ]
 
 MIDDLEWARE = [
@@ -140,3 +149,11 @@ MEDIA_ROOT = BASE_DIR / "hello_world" / "media"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'tu_cloud_name',
+    'API_KEY': 'tu_api_key',
+    'API_SECRET': 'tu_api_secret'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

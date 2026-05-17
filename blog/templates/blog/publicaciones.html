@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Playlist Personal</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+    <h1>Mi Playlist</h1>
+    
+    <div style="text-align: center; margin-bottom: 20px;">
+        <a href="{% url 'agregar_cancion' %}" style="font-size: 18px; font-weight: bold; text-decoration: none; color: #007bff;"> Agregar nueva canción</a>
+    </div>
+
+    <div class="posts">
+        {% for cancion in canciones %}
+            <div class="post" style="overflow: hidden; padding: 20px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 8px;">
+                {% if cancion.foto_url %}
+                    <img src="{{ cancion.foto_url }}" width="100" height="100" style="border-radius: 50%; float: right; object-fit: cover; margin-left: 15px;">
+                {% endif %}
+                <h2>
+                    <a href="{% url 'detalle_cancion' cancion.id %}" style="text-decoration: none; color: #005f99;">
+                        {{ cancion.titulo }}
+                    </a>
+                </h2>
+                <p><strong>Artista:</strong> {{ cancion.artista }}</p>
+                <p><strong>Género:</strong> {{ cancion.genero }}</p>
+                <p>{{ cancion.letra|truncatewords:15 }}</p>
+                <br>
+                <a href="{% url 'detalle_cancion' cancion.id %}" style="color: #007bff;">Ver detalles y comentarios...</a>
+            </div>
+        {% empty %}
+            <div class="post">
+                <p style="text-align: center;">Tu playlist está vacía. ¡Presiona "Agregar nueva canción" arriba para comenzar!</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+/* --- ESTILO GENERAL (AESTHETIC & GIRLY) --- */
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background-color: #fff0f5; /* Un fondo rosa pastel súper tierno (Lavender Blush) */
+   color: #4a3b42; /* Texto en un tono café/morado oscuro muy suave, no tan tosco como el negro */
+   margin: 40px auto;
+   max-width: 800px; /* Centra todo el contenido para que no se desarme en pantallas grandes */
+   padding: 0 20px;
+}
+
+/* --- TÍTULOS EN CANTIDADES COQUETAS --- */
+h1 {
+   text-align: center;
+   color: #ff69b4; /* Rosa brillante (Hot Pink) */
+   font-size: 2.5rem;
+   text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2); /* Sombra suave de brillo rosa */
+   margin-bottom: 30px;
+}
+
+h2, h3, h4 {
+   color: #db7093; /* Rosa viejo/magenta suave */
+}
+
+/* --- ENLACES GENERALES --- */
+a {
+   color: #ba55d3; /* Lila/Orquídea para los links */
+   text-decoration: none;
+   font-weight: bold;
+   transition: color 0.3s ease;
+}
+
+a:hover {
+   color: #ff69b4; /* Cambia a rosa brillante cuando pasas el mouse */
+   text-decoration: underline;
+}
+
+/* --- TARJETAS DE CANCIONES Y COMENTARIOS (.POST) --- */
+.post {
+   background-color: rgba(255, 255, 255, 0.95); /* Blanco puro con un toque de brillo */
+   padding: 25px;
+   border: 2px solid #ffe4e1; /* Borde rosa pastel muy sutil */
+   border-radius: 20px; /* Esquinas súper redondeadas y tiernas */
+   margin-bottom: 25px;
+   box-shadow: 0 8px 16px rgba(255, 182, 193, 0.3); /* Sombra coqueta en tonos rosa */
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto flotante cuando pasas el mouse por encima de una canción */
+.post:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 12px 22px rgba(255, 105, 180, 0.4);
+}
+
+/* --- BOTONES (EDICIÓN ESPECIAL BRICE) --- */
+button, input[type="submit"] {
+   background-color: #ffb6c1; /* Fondo rosa pastel (Light Pink) */
+   color: white;
+   border: none;
+   padding: 12px 20px;
+   border-radius: 50px; /* Botones ovalados estilo cápsula */
+   font-size: 16px;
+   font-weight: bold;
+   cursor: pointer;
+   box-shadow: 0 4px 6px rgba(255, 105, 180, 0.2);
+   transition: all 0.3s ease;
+}
+
+button:hover {
+   background-color: #ff69b4; /* Se vuelve más encendido al tocarlo */
+   box-shadow: 0 6px 12px rgba(255, 105, 180, 0.4);
+   transform: scale(1.03); /* Se hace un poquitito más grande */
+}
+
+/* --- FORMULARIOS (CAJAS DE TEXTO) --- */
+input[type="text"], input[type="url"], select, textarea {
+   width: 100%;
+   padding: 12px;
+   margin-top: 8px;
+   margin-bottom: 15px;
+   border: 2px solid #ffe4e1;
+   border-radius: 12px;
+   background-color: #fff9fa; /* Fondo del cuadro con un tinte rosa claro */
+   box-sizing: border-box;
+   outline: none;
+   transition: border-color 0.3s ease;
+}
+
+/* Cuando estás escribiendo en el cuadro */
+input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
+   border-color: #ff69b4; /* El borde se ilumina en rosa */
+   background-color: #ffffff;
+}
+
+/* --- DETALLES EXTRA --- */
+hr {
+   border: 0;
+   height: 1px;
+   background-image: linear-gradient(to right, rgba(255,182,193,0), rgba(255,105,180,0.75), rgba(255,182,193,0));
+   margin: 20px 0;
+}
+
+img {
+   border: 4px solid #fff;
+   box-shadow: 0 4px 8px rgba(255, 182, 193, 0.5);
+}

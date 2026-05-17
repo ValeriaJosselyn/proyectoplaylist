@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Canción</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+    <style>
+        /* Solo agregamos este pequeño ajuste para centrar la tarjeta en la pantalla */
+        .main-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 85vh;
+            width: 100%;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 500px; /* Evita que el formulario se estire de más */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div class="form-container post">
+            <h1>Agregar a la Playlist</h1>
+            
+            {% if error %}
+                <p style="color: #ff69b4; background-color: #fff9fa; padding: 12px; border: 1px solid #ffe4e1; border-radius: 12px; font-weight: bold; text-align: center;">
+                    ⚠️ {{ error }}
+                </p>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+                
+                <label for="titulo">Título de la canción:</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Ej. Starboy" required>
+
+                <label for="artista">Artista / Banda:</label>
+                <input type="text" id="artista" name="artista" placeholder="Ej. The Weeknd" required>
+
+                <label for="foto_url">URL de la imagen del artista:</label>
+                <input type="url" id="foto_url" name="foto_url" placeholder="https://res.cloudinary.com/...">
+
+                <label for="album">Álbum:</label>
+                <input type="text" id="album" name="album" placeholder="Ej. Starboy Album">
+
+                <label for="genero">Género Musical:</label>
+                <select id="genero" name="genero">
+                    <option value="Pop">Pop</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Trap">Trap</option>
+                    <option value="Reggaeton">Reggaetón</option>
+                    <option value="Electrónica">Electrónica</option>
+                    <option value="General">General / Otro</option>
+                </select>
+
+                <label for="letra">Letra de la canción:</label>
+                <textarea id="letra" name="letra" rows="5" placeholder="Pega la letra aquí..."></textarea>
+
+                <button type="submit" style="width: 100%; margin-top: 15px;">Guardar Canción</button>
+            </form>
+
+            <a href="{% url 'lista_musica' %}" class="btn-volver" style="display: block; text-align: center; margin-top: 20px;">⬅️ Volver a la Playlist</a>
+        </div>
+    </div>
+
+</body>
+</html>
